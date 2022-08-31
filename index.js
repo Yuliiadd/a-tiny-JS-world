@@ -29,3 +29,58 @@
    */
 
 
+"use strict"
+
+const man = {
+   species: 'Homo sapiens',
+   name: 'Joe',
+   gender: 'male',
+   legs: 2,
+   hands: 2,
+   saying: 'How you doing?'
+};
+const woman = {
+   species: 'Homo sapiens',
+   name: 'Monica',
+   gender: 'female',
+   legs: 2,
+   hands: 2,
+   saying: 'I know!'
+};
+const cat = {
+   species: 'cat',
+   name: 'Taras',
+   gender: 'male',
+   legs: 4,
+   hands: 0,
+   saying: 'Meeeeoow!'
+};
+const dog = {
+   species: 'dog',
+   name: 'Chappy',
+   gender: 'male',
+   legs: 4,
+   hands: 0,
+   saying: 'Woooof!'
+};
+
+const catWoman = Object.assign({}, cat);
+catWoman.species = 'Cat-woman';
+catWoman.name = 'Halle Berry';
+catWoman.gender = 'female';
+catWoman.legs = 2;
+catWoman.hands = 2;
+
+function objToSrting(obj) {
+   let result = "";
+   for (var key in obj) {
+      result += obj[key] + ";"
+   };
+   print(result.substring(0, result.length - 1));
+};
+
+objToSrting(man);
+objToSrting(woman);
+objToSrting(cat);
+objToSrting(dog);
+objToSrting(catWoman);
