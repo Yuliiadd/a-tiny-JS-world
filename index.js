@@ -32,7 +32,7 @@
 "use strict"
 
 const man = {
-   species: 'Homo sapiens',
+   species: 'Human',
    name: 'Joe',
    gender: 'male',
    legs: 2,
@@ -40,7 +40,7 @@ const man = {
    saying: 'How you doing?'
 };
 const woman = {
-   species: 'Homo sapiens',
+   species: 'Human',
    name: 'Monica',
    gender: 'female',
    legs: 2,
@@ -71,6 +71,8 @@ catWoman.gender = 'female';
 catWoman.legs = 2;
 catWoman.hands = 2;
 
+const livingBeings = [man, woman, cat, dog, catWoman];
+
 function objToSrting(obj) {
    let result = "";
    for (var key in obj) {
@@ -79,8 +81,6 @@ function objToSrting(obj) {
    print(result.substring(0, result.length - 1));
 };
 
-objToSrting(man);
-objToSrting(woman);
-objToSrting(cat);
-objToSrting(dog);
-objToSrting(catWoman);
+livingBeings.forEach(item => {
+   objToSrting(item);
+});
