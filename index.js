@@ -4,11 +4,10 @@ class LivingBeing {
       this.name = name;
       this.gender = gender;
       this.saying = saying;
-      this.properties = ['species','name','gender','saying'];
    };
 
    showProperties() {
-      return this.properties.map(prop => this[prop]).join('; ');
+      return Object.getOwnPropertyNames(this).map(prop => this[prop]).join('; ');
    }
 };
 
@@ -18,10 +17,6 @@ class Human extends LivingBeing {
       this.legs = 2;
       this.hands = 2;
    };
-
-   showProperties() {
-      return super.showProperties() + `; ${this.legs}; ${this.hands}`;
-   };
 };
 
 class Animal extends LivingBeing {
@@ -29,16 +24,11 @@ class Animal extends LivingBeing {
       super(species, name, gender, saying);
       this.legs = 4;
    };
-
-   showProperties() {
-      return super.showProperties() + `; ${this.legs}`;
-   }
 };
 
 class Cat extends Animal {
    constructor(name, gender) {
       super("Kitty", name, gender, "Meooow!");
-
    };
 };
 
@@ -55,10 +45,6 @@ class CatWoman extends Cat {
       this.legs = 2;
       this.hands = 2;
    };
-
-   showProperties() {
-      return super.showProperties() + `; ${this.hands} `;
-   }
 };
 
 const 
