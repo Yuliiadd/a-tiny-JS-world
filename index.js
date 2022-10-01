@@ -1,80 +1,62 @@
-class LivingBeing {
-   constructor(species, name, gender, saying, legs) {
-      this.species = species;
-      this.name = name;
-      this.gender = gender;
-      this.saying = saying;
-      this.legs = legs;
-   };
+/* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
+   Complete the below for code reviewers' convenience:
+   Code repository: _put repo URL here_
+   Web app: _put project's github pages URL here_
+   */
 
-   showProperties() {
-      return [
-         this.species, 
-         this.name, 
-         this.gender, 
-         this.saying, 
-         this.legs,
-      ].join('; ');
-   }
+// ======== OBJECTS DEFINITIONS ========
+
+const man = {
+   species: 'Human',
+   name: 'Joe',
+   gender: 'male',
+   legs: 2,
+   hands: 2,
+   saying: 'How you doing?'
+};
+const woman = {
+   species: 'Human',
+   name: 'Monica',
+   gender: 'female',
+   legs: 2,
+   hands: 2,
+   saying: 'I know!'
+};
+const cat = {
+   species: 'cat',
+   name: 'Taras',
+   gender: 'male',
+   legs: 4,
+   hands: 0,
+   saying: 'Meeeeoow!'
+};
+const dog = {
+   species: 'dog',
+   name: 'Chappy',
+   gender: 'male',
+   legs: 4,
+   hands: 0,
+   saying: 'Woooof!'
 };
 
-class Human extends LivingBeing {
-   constructor(name, gender, saying, legs) {
-      super("Human", name, gender, saying, legs);
-      this.hands = 2;
-   };
+const catWoman = Object.assign({}, cat);
+catWoman.species = 'Cat-woman';
+catWoman.name = 'Halle Berry';
+catWoman.gender = 'female';
+catWoman.legs = 2;
+catWoman.hands = 2;
 
-   showProperties() {
-      return [
-         super.showProperties(),
-         this.hands,
-      ].join('; ');
-   }
+const livingBeings = [man, woman, cat, dog, catWoman];
 
-};
+// function objToString(obj) {
+//    let result = "";
+//    for (var key in obj) {
+//       result += obj[key] + ";"
+//    };
+// obj.map()
+//    print(result.substring(0, result.length - 1));
+// };
 
-class Animal extends LivingBeing {
-   constructor(species, name, gender, saying, legs) {
-      super(species, name, gender, saying, legs);
-   };
-};
-
-class Cat extends Animal {
-   constructor(name, gender, legs) {
-      super("Kitty", name, gender, "Meooow!", legs);
-   };
-};
-
-class Dog extends Animal {
-   constructor(name, gender, legs) {
-      super("Puppy", name, gender, "Woof!", legs);
-   };
-};
-
-class CatWoman extends Cat {
-   constructor(name) {
-      super(name, "Female");
-      this.species = "Cat-woman";
-      this.legs = 2;
-      this.hands = 2;
-   };
-
-   showProperties() {
-      return [
-         super.showProperties(),
-         this.hands,
-      ].join('; ');
-   }
-};
-
-const 
-man = new Human('Joe', 'male', 'How you doing?', 2),
-woman = new Human('Monica', 'female', 'I know!', 2),
-cat = new Cat('Taras', 'male', 4),
-dog = new Dog('Chappy', 'male', 4),
-catWoman = new CatWoman('Halle Berry'),
-livingBeings = [man, woman, cat, dog, catWoman];
-
-livingBeings.forEach(item => {
-   print(item.showProperties());
+livingBeings.forEach(inhabitant => {
+   print([inhabitant.species, inhabitant.name, inhabitant.gender, inhabitant.legs, inhabitant.hands, inhabitant.saying].join("; "));
 });
