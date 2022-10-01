@@ -48,6 +48,6 @@ catWoman.hands = 2;
 
 const livingBeings = [man, woman, cat, dog, catWoman];
 
-livingBeings.forEach(inhabitant => {
-   print([inhabitant.species, inhabitant.name, inhabitant.gender, inhabitant.legs, inhabitant.hands, inhabitant.saying].join("; "));
+livingBeings.forEach(({species, name, gender, legs, hands, saying})=> {
+   print([species, name, gender, legs, hands, saying].join("; "));
 });
